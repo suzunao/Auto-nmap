@@ -18,7 +18,7 @@ echo -e "[*]El reporte se guardará en $REPORT"
 # Escaneo de puertos abiertos
 echo -e "\e[31m Escaneando Puertos Abiertos...\e[0m"
 open_port=$(nmap --open -p- -sS --min-rate 5000 -n -Pn $1)
-port_scan=$(echo "$open_port" | awk '/^[0-9]+\/tcp/ {print $1}' | cut -d'/' -f1>
+port_scan=$(echo "$open_port" | awk '/^[0-9]+\/tcp/ {print $1}' | cut -d'/' -f1)
 echo -e "\n---Puertos Encontrados---" | tee -a $REPORT
 echo -e "$open_port\n" | tee -a $REPORT
 
